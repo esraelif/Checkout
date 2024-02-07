@@ -10,21 +10,18 @@ h1 {
 .container {
     width: 90%;
     max-width: 1200px;
-    /* Maksimum genişlik belirlemek için */
+
     height: 850px;
     margin: 50px auto;
-    /* Sayfayı merkezlemek için */
     background-color: #82ccdd;
     display: flex;
     flex-wrap: wrap;
-    /* Öğeleri wrap yaptım */
     justify-content: space-between;
-    /* Öğeleri boşluk bırakarak düzenledim */
+
 }
 
 .watch {
     width: calc(33% - 5px);
-    /* Ürünler arası boşluklarla birlikte üç sütun oluşturdum */
     margin-bottom: 20px;
     display: inline-block;
     justify-content: space-between;
@@ -83,9 +80,6 @@ h1 {
     width: 450px;
     border-bottom: 2px solid black;
     text-align: center;
-
-
-
 
 }
 

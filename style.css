@@ -1,0 +1,106 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: #3c6382;
+    margin-top: 150px;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    /* Maksimum genişlik belirlemek için */
+    height: 850px;
+    margin: 50px auto;
+    /* Sayfayı merkezlemek için */
+    background-color: #82ccdd;
+    display: flex;
+    flex-wrap: wrap;
+    /* Öğeleri wrap yaptım */
+    justify-content: space-between;
+    /* Öğeleri boşluk bırakarak düzenledim */
+}
+
+.watch {
+    width: calc(33% - 5px);
+    /* Ürünler arası boşluklarla birlikte üç sütun oluşturdum */
+    margin-bottom: 20px;
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    text-align: center;
+
+}
+
+.first img {
+    width: 88%;
+    height: 300px;
+    margin: 30px;
+
+}
+
+.item {
+    position: relative;
+}
+
+.item input {
+    width: 50px;
+
+}
+
+.button1,
+.button2 {
+    position: absolute;
+    height: 25px;
+    width: 28px;
+}
+
+.button1 {
+    left: 90px;
+    top: 9px;
+}
+
+.button2 {
+    right: 90px;
+    top: 9px;
+}
+
+.price span {
+    text-decoration: line-through;
+    color: red;
+}
+
+.remove {
+    margin-top: 10px;
+    background-color: #eb2f06;
+}
+
+.subtotal {
+    width: 450px;
+    border-bottom: 2px solid black;
+    text-align: center;
+
+
+
+
+}
+
+.total {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 30%;
+    color: #eb2f06;
+}
+
+.subtotal,
+.subtotal>span {
+    font-size: 1rem;
+    color: #eb2f06;
+
+}

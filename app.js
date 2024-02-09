@@ -24,12 +24,31 @@ function setupButtons() {
         });
     });
 
+    function updateCardPositions() {
+        var container = document.querySelector('.container');
+        var watches = container.querySelectorAll('.watch');
+
+        watches.forEach(function (watch, index) {
+            watch.style.transition = 'transform 0.3s ease-in-out';
+            watch.style.transform = 'translateX(-' + (index * 350) + 'px)';
+        });
+    }
+
     document.querySelectorAll('.remove').forEach(function (button) {
         button.addEventListener('click', function () {
-            this.closest('.watch').remove();
-            updateSubtotal();
+            var removedWatch = this.closest('.watch');
+            removedWatch.style.transition = 'transform 0.3s ease-in-out';
+            removedWatch.style.transform = 'translateX(-100%)';
+            setTimeout(function () {
+                removedWatch.remove();
+                updateSubtotal();
+                updateCardPositions(); // Kartların sırasını güncelle
+            }, 300);
         });
     });
+
+
+
 
     document.querySelectorAll('input[type="number"]').forEach(function (input) {
         input.addEventListener('input', function () {
@@ -47,27 +66,27 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     updateSubtotal();
 
-    var quantityInputs = document.querySelectorAll('.item input[type="number"]');
+    let quantityInputs = document.querySelectorAll('.item input[type="number"]');
     quantityInputs.forEach(function (input) {
         input.addEventListener('change', updateSubtotal);
     });
 });
 
 function updateSubtotal() {
-    var totalPrices = document.querySelectorAll('.total');
-    var subtotal = 0;
+    let totalPrices = document.querySelectorAll('.total');
+    let subtotal = 0;
 
     totalPrices.forEach(function (element) {
-        var cleanedText = element.textContent.trim();
-        var price = parseFloat(cleanedText.replace('$', ''));
+        let cleanedText = element.textContent.trim();
+        let price = parseFloat(cleanedText.replace('$', ''));
         if (!isNaN(price)) {
             subtotal += price;
         }
     });
 
-    var tax = subtotal * 0.18;
-    var shipping = 17;
-    var total = subtotal + tax + shipping;
+    let tax = subtotal * 0.18;
+    let shipping = subtotal >= 120 ? 0 : 17; // Eğer subtotal $120'den büyükse, shipping ücretsiz olacak
+    let total = subtotal + tax + shipping;
 
     document.querySelector('.subprice').textContent = '$' + subtotal.toFixed(2);
     document.querySelector('.taxprice').textContent = '$' + tax.toFixed(2);
